@@ -11,11 +11,11 @@ HTML5 placeholder feature made easy with this simple plugin. Just specify the "i
     <script type="text/javascript" src="/path/to/jquery-placeholder.js"></script>
 
 3) Fire the plugin before "`</body>`" tag.
-  <script type="text/javascript">
-  $("#search").placeHolder({
-  	"text": "Your Placeholder Text"
-  });
-  </script>
+    <script type="text/javascript">
+    $('#search').placeHolder({
+    	'text': 'Your Placeholder Text'
+    });
+    </script>
 
 4) That's all!
 
@@ -49,8 +49,8 @@ HTML5 placeholder feature made easy with this simple plugin. Just specify the "i
         
         <script type="text/javascript">
     	$("#something").placeHolder({
-    		"text"		 : "This is the placeholder text",
-    		"active"	 : "#000",
+    		"text"           : "This is the placeholder text",
+    		"active"         : "#000",
     		"placeholder"    : "#333"
     	});
         </script>
