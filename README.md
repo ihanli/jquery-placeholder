@@ -34,7 +34,7 @@ HTML5 placeholder feature made easy with this simple plugin. Just specify the "i
 
     "placeholder": "#333"
     
-*3) Autofocus:*
+*4) Autofocus:*
 
     "autofocus": true
 
