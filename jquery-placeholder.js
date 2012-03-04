@@ -19,18 +19,19 @@
 			// Set placeholder text color
 			$(this).css("color", settings.placeholder);
 			// Autofocus
-			settings.autofocus == true ? $(this).focus() : '';
+			settings.autofocus == true || $(this).attr("autofocus") == "autofocus" ? $(this).focus() : '';
 			// On keydown (autofocus fix)
 			$(this).keydown(function(e) {
-                if (settings.autofocus == true) {
+                if (settings.autofocus == true || $(this).attr("autofocus") == "autofocus") {
 					$(this).val("");
 					$(this).css("color", settings.active);
 					settings.autofocus = false;
+					settings.autofocus = $(this).removeAttr("autofocus");
 				}
             });
 			// On focus
-			$(this).focus(function() {
-				if($(this).val() == settings.text && !settings.autofocus) {
+			$(this).focus(function(e) {
+				if($(this).val() == settings.text && !settings.autofocus && $(this).attr("autofocus") != "autofocus") {
 					$(this).css("color", settings.active);
 					$(this).val("");	
 				}
@@ -40,7 +41,7 @@
 				if($(this).val() == "" || $(this).val() == settings.text) {
 					$(this).val(settings.text);
 					$(this).css("color", settings.placeholder);
-					settings.autofocus ? settings.autofocus = false : '';
+					settings.autofocus || $(this).attr("autofocus") == "autofocus" ? settings.autofocus = false : '';
 				}
 			});
 		});				
