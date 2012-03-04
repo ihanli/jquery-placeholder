@@ -5,7 +5,6 @@
 */
 (function( $ ){
 	$.fn.placeHolder = function(options) {
-		var eo = this;
 		var settings = {
 			'text'		  : 'Placeholder',
 			'placeholder' : '#999',
@@ -14,23 +13,36 @@
 		return this.each(function() {        
 			if ( options ) { 
 				$.extend( settings, options );
-			}			
-			eo.val(settings.text);
-			eo.css("color", settings.placeholder);
-			eo.focus(function() {
-				if(eo.val() == settings.text) {
-					eo.css("color", settings.active);
-					eo.val("");	
+			}
+			// Set placeholder text			
+			$(this).val(settings.text);
+			// Set placeholder text color
+			$(this).css("color", settings.placeholder);
+			// Autofocus
+			settings.autofocus == true ? $(this).focus() : '';
+			// On keydown (autofocus fix)
+			$(this).keydown(function(e) {
+                if (settings.autofocus == true) {
+					$(this).val("");
+					$(this).css("color", settings.active);
+					settings.autofocus = false;
+				}
+            });
+			// On focus
+			$(this).focus(function() {
+				if($(this).val() == settings.text && !settings.autofocus) {
+					$(this).css("color", settings.active);
+					$(this).val("");	
 				}
 			});
-			eo.focusout(function() {
-				$("#search_box img").css("display","none");
-				if(eo.val() == "" || eo.val() == settings.text) {
-					eo.val(settings.text);
-					eo.css("color", settings.placeholder);
+			// On focusout
+			$(this).focusout(function() {
+				if($(this).val() == "" || $(this).val() == settings.text) {
+					$(this).val(settings.text);
+					$(this).css("color", settings.placeholder);
+					settings.autofocus ? settings.autofocus = false : '';
 				}
 			});
 		});				
-	
 	};
 })( jQuery );

@@ -13,7 +13,7 @@ HTML5 placeholder feature made easy with this simple plugin. Just specify the "i
 3) Fire the plugin before "`</body>`" tag.
     <script type="text/javascript">
     $('#search').placeHolder({
-    	'text': 'Your Placeholder Text'
+        'text': 'Your Placeholder Text'
     });
     </script>
 
@@ -32,6 +32,10 @@ HTML5 placeholder feature made easy with this simple plugin. Just specify the "i
 *3) Placeholder Text Color:*
 
     "placeholder": "#333"
+    
+*3) Autofocus:*
+
+    "autofocus": true
 
 ## Example
     
@@ -48,11 +52,11 @@ HTML5 placeholder feature made easy with this simple plugin. Just specify the "i
         </form>
         
         <script type="text/javascript">
-    	$("#something").placeHolder({
-    		"text"           : "This is the placeholder text",
-    		"active"         : "#000",
-    		"placeholder"    : "#333"
-    	});
+        $("#something").placeHolder({
+            "text"           : "This is the placeholder text",
+            "active"         : "#000",
+            "placeholder"    : "#333"
+        });
         </script>
     </body>
     </html>
