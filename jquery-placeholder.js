@@ -5,12 +5,13 @@
 */
 (function( $ ){
 	$.fn.placeHolder = function(options) {
+		var NATIVE_SUPPORT = !!("placeholder" in document.createElement( "input" ));
 		var settings = {
 			'text'		  : 'Placeholder',
 			'placeholder' : '#999',
 			'active' 	  : '#000'
 		};
-		return this.each(function() {        
+		return NATIVE_SUPPORT ? this : this.each(function() {        
 			if ( options ) { 
 				$.extend( settings, options );
 			}
